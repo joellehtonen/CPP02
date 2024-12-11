@@ -1,32 +1,35 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+const int Fixed::fractionalBits_ = 8;
+
+Fixed::Fixed() : fixedPointValue_(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::~Fixed() 
+Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
 };
 
-Fixed::Fixed(const Fixed& other)
+Fixed::Fixed(const Fixed& copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 };
 
-Fixed& operator=(const Fixed& other)
+Fixed &Fixed::operator=(const Fixed& source)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 };
 
 int		Fixed::getRawBits(void) const
 {
-
-
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->fixedPointValue_);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-
+	std::cout << "setRawBits member function called" << std::endl;
+	this->fixedPointValue_ = raw;
 }
