@@ -17,12 +17,27 @@ class Fixed
 
 		Fixed	&operator=(const Fixed &source); //copy assignment operator
 
-		bool	operator>(const Fixed &ref);
-		bool	operator<(const Fixed &ref);
-		bool	operator>=(const Fixed &ref);
-		bool	operator<=(const Fixed &ref);
-		bool	operator==(const Fixed &ref);
-		bool	operator!=(const Fixed &ref);
+		bool	operator>(const Fixed& ref) const;
+		bool	operator<(const Fixed& ref) const;
+		bool	operator>=(const Fixed& ref) const;
+		bool	operator<=(const Fixed& ref) const;
+		bool	operator==(const Fixed& ref) const;
+		bool	operator!=(const Fixed& ref) const;
+
+		Fixed	operator+(const Fixed& ref);
+		Fixed	operator-(const Fixed& ref);
+		Fixed	operator*(const Fixed& ref);
+		Fixed	operator/(const Fixed& ref);
+
+		Fixed&	operator++(void);
+		Fixed	operator++(int unused);
+		Fixed&	operator--(void);
+		Fixed	operator--(int unused);
+
+		static Fixed&		min(Fixed& ref1, Fixed& ref2);
+		static const Fixed&	min(const Fixed& ref1, const Fixed& ref2);
+		static Fixed&		max(Fixed& ref1, Fixed& ref2);
+		static const Fixed&	max(const Fixed& ref1, const Fixed& ref2);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
@@ -32,4 +47,4 @@ class Fixed
 
 };
 
-	std::ostream &operator<<(std::ostream &output, const Fixed &number);
+	std::ostream& operator<<(std::ostream &output, const Fixed &number);

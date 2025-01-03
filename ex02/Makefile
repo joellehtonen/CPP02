@@ -1,4 +1,4 @@
-NAME	=	more_useful_fixed-point_number
+NAME	=	now_were_talking
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++20
 SRCS	=	main.cpp \
