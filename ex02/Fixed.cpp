@@ -96,26 +96,25 @@ bool	Fixed::operator!=(const Fixed& ref) const
 };
 
 // arithmetic operators
-// THESE MAYBE WRONG
 
 Fixed	Fixed::operator+(const Fixed& ref)
 {
-	return (this->c_fixedPointValue + ref.getRawBits());
+	return (this->toFloat() + ref.toFloat());
 };
 
 Fixed	Fixed::operator-(const Fixed& ref)
 {
-	return (this->c_fixedPointValue - ref.getRawBits());
+	return (this->toFloat() - ref.toFloat());
 };
 
 Fixed	Fixed::operator*(const Fixed& ref)
 {
-	return (this->c_fixedPointValue * ref.getRawBits());
+	return (this->toFloat() * ref.toFloat());
 };
 
 Fixed	Fixed::operator/(const Fixed& ref)
 {
-	return (this->c_fixedPointValue / ref.getRawBits());
+	return (this->toFloat() / ref.toFloat());
 };
 
 // increment/decrement operators
