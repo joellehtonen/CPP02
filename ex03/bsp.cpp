@@ -16,6 +16,13 @@ bool bsp(Point const a, Point const b, Point const c, Point const p)
 	// else
 	// 	return (false);
 
+	if ((p.getX() == a.getX() && p.getY() == a.getY())
+		|| (p.getX() == b.getX() && p.getY() == b.getY())
+		|| (p.getX() == c.getX() && p.getY() == c.getY()))
+	{
+		return false;
+	}
+
 	float	abcArea = calculateArea(a.getX().toFloat(), a.getY().toFloat(), b.getX().toFloat(), b.getY().toFloat(), c.getX().toFloat(), c.getY().toFloat());
 	float	pabArea = calculateArea(a.getX().toFloat(), a.getY().toFloat(), b.getX().toFloat(), b.getY().toFloat(), p.getX().toFloat(), p.getY().toFloat());
 	float	pbcArea = calculateArea(p.getX().toFloat(), p.getY().toFloat(), b.getX().toFloat(), b.getY().toFloat(), c.getX().toFloat(), c.getY().toFloat());
@@ -26,7 +33,7 @@ bool bsp(Point const a, Point const b, Point const c, Point const p)
 	std::cout << "Total Sum is " << totalSum << std::endl;
 
 	if (totalSum == abcArea)
-		return (true);
+		return true;
 	else
-		return (false);
+		return false;
 }
