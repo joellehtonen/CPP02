@@ -4,97 +4,38 @@
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);
 
-#define RESET "\e[0m"
-#define CYAN "\e[36m"
-#define YELLOW "\e[33m"
-#define GREEN "\e[32m"
-#define RED	"\e[31m"
-
-void	printIsPointInsideTriangle(Point const a, Point const b, Point const c, Point const p, bool expected )
+int main()
 {
-	std::cerr << YELLOW "-- Triangle: A(" << a.getX() << ", " << a.getY() << ") "
-		<< "B(" << b.getX() << ", " << b.getY() << ") "
-		<< "C(" << c.getX() << ", " << c.getY() << ")" << std::endl
-		<< "-- Point: P(" << p.getX() << ", " << p.getY() << ")" RESET << std::endl;
-	std::cout << "Is point P inside triangle ABC? ";
-	if (bsp(a, b, c, p) == true)
-		std::cout << GREEN "YES!" RESET;
+	Point a(0.0f, 0.0f);
+	Point b(10.0f, 30.0f);
+	Point c(20.0f, 0.0f);
+
+	std::cout << "TEST 1 (expected result: inside)" << std::endl;
+	Point p1(10.0f, 15.0f);
+	bool calc1 = (bsp(a, b, c, p1));
+	if (calc1)
+		std::cout <<"Inside" << std::endl;
 	else
-		std::cout << RED "NO." RESET;
-	std::cout << " (Expected: ";
-	if (expected == true)
-		std::cout << GREEN "YES" RESET;
+    	std::cout <<"Outside" << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "TEST 2 (expected result: outside)" << std::endl;
+	Point p2(30.0f, 150.0f);
+	bool calc2 = (bsp(a, b, c, p2));
+	if (calc2)
+		std::cout <<"Inside" << std::endl;
 	else
-		std::cout << RED "NO" RESET;
-	std::cout << ")" << std::endl << std::endl;
-	return ;
-}
+    	std::cout <<"Outside" << std::endl;
+	std::cout << std::endl;
 
-void	testSimpleTriangle( void )
-{
-	bool		expect;
-	Point const a(0, 0);
-	Point const b(6, 0);
-	Point const c(0, 6);
+	std::cout << "TEST 3 (expected result: outside)" << std::endl;
+	Point p3(0.0f, 0.0f);
+	bool calc3 = (bsp(a, b, c, p3));
+	if (calc3)
+		std::cout <<"Inside" << std::endl;
+	else
+    	std::cout <<"Outside" << std::endl;
+	std::cout << std::endl;
 
-	std::cout << std::endl << "--- Simple triangle test" << std::endl << std::endl;
-	{
-		Point const p(1.5f, 1.5f);
-		expect = true;
-		printIsPointInsideTriangle(a, b, c, p, expect);
-	}
-	{
-		Point const p(a);
-		expect = false;
-		printIsPointInsideTriangle(a, b, c, p, expect);
-	}
-	{
-		Point const p(10.0f, 1.5f);
-		expect = false;
-		printIsPointInsideTriangle(a, b, c, p, expect);
-	}
-	{
-		Point const p(4.5f, 0.5f);
-		expect = true;
-		printIsPointInsideTriangle(a, b, c, p, expect);
-	}
-	return ;
-}
-
-void	testFloatPointTriangle( void )
-{
-	bool		expect;
-	Point const a(-5.44f, 0.29f);
-	Point const b(2.62f, 2.95f);
-	Point const c(1.0f, -1.45f);
-
-	std::cout << std::endl << "--- Floating point triangle test" << std::endl << std::endl;
-	{
-		Point const p;
-		expect = true;
-		printIsPointInsideTriangle(a, b, c, p, expect);
-	}
-	{
-		Point const p(c);
-		expect = false;
-		printIsPointInsideTriangle(a, b, c, p, expect);
-	}
-	{
-		Point const p(-5.45f, 0.29f);
-		expect = false;
-		printIsPointInsideTriangle(a, b, c, p, expect);
-	}
-	{
-		Point const p(3.5f, 1.5f);
-		expect = false;
-		printIsPointInsideTriangle(a, b, c, p, expect);
-	}
-	return ;
-}
-
-int	main( void )
-{
-	testSimpleTriangle();
-	testFloatPointTriangle();
-	return ( 0 );
+	return (0);
 }

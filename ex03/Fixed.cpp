@@ -5,36 +5,36 @@ const int Fixed::_fractionalBits = 8;
 // CONSTRUCTORS
 Fixed::Fixed() : _fixedPointValue(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	//std::cout << "Default constructor called" << std::endl;
 };
 
 Fixed::Fixed(const int int_number) : _fixedPointValue(int_number << _fractionalBits)
 {
-	std::cout << "Int constructor called" << std::endl;
+	//std::cout << "Int constructor called" << std::endl;
 };
 
 Fixed::Fixed(const float float_number) : _fixedPointValue(roundf(float_number * (1 << _fractionalBits)))
 {
-	std::cout << "Float constructor called" << std::endl;
+	//std::cout << "Float constructor called" << std::endl;
 };
 
 Fixed::Fixed(const Fixed &copy) : _fixedPointValue(copy._fixedPointValue)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	//std::cout << "Copy constructor called" << std::endl;
 };
 
 // DESTRUCTOR
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 };
 
 // OPERATOR OVERLOADS
 
 Fixed &Fixed::operator=(const Fixed &source)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	//std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixedPointValue = source.getRawBits();
 	return (*this);
 };
