@@ -7,19 +7,11 @@ float	calculateArea(float x1, float y1, float x2, float y2, float x3, float y3)
 
 bool bsp(Point const a, Point const b, Point const c, Point const p)
 {
-	// float ab = ((p.getX().toFloat() - a.getX().toFloat()) * (b.getY().toFloat() - a.getY().toFloat()) - (p.getY().toFloat() - a.getY().toFloat()) * (b.getX().toFloat() - a.getX().toFloat()));
-	// float bc = ((p.getX().toFloat() - b.getX().toFloat()) * (c.getY().toFloat() - b.getY().toFloat()) - (p.getY().toFloat() - b.getY().toFloat()) * (c.getX().toFloat() - b.getX().toFloat()));
-	// float ca = ((p.getX().toFloat() - c.getX().toFloat()) * (a.getY().toFloat() - c.getY().toFloat()) - (p.getY().toFloat() - c.getY().toFloat()) * (a.getX().toFloat() - c.getX().toFloat()));
-
-	// if (ab >= 0 && bc >= 0 && ca >= 0)
-	// 	return (true);
-	// else
-	// 	return (false);
-
 	if ((p.getX() == a.getX() && p.getY() == a.getY())
 		|| (p.getX() == b.getX() && p.getY() == b.getY())
 		|| (p.getX() == c.getX() && p.getY() == c.getY()))
 	{
+		std::cout << "The point is on a vertex" << std::endl;
 		return false;
 	}
 
