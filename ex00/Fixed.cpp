@@ -17,7 +17,7 @@ Fixed::Fixed(const Fixed &copy) : _fixedPointValue(copy._fixedPointValue)
 	std::cout << "Copy constructor called" << std::endl;
 };
 
-Fixed &Fixed::operator=(const Fixed &source)
+Fixed& Fixed::operator=(const Fixed &source)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &source)

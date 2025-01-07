@@ -32,7 +32,7 @@ Fixed::~Fixed()
 
 // OPERATOR OVERLOADS
 
-Fixed &Fixed::operator=(const Fixed &source)
+Fixed&	Fixed::operator=(const Fixed &source)
 {
 	//std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixedPointValue = source.getRawBits();

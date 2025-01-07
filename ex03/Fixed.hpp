@@ -15,7 +15,7 @@ class Fixed
 		~Fixed(); //destructor
 		Fixed(const Fixed &copy); //copy constructor
 
-		Fixed	&operator=(const Fixed &source); //copy assignment operator
+		Fixed&	operator=(const Fixed &source); //copy assignment operator
 
 		bool	operator>(const Fixed& ref) const;
 		bool	operator<(const Fixed& ref) const;
