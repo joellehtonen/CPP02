@@ -10,11 +10,13 @@ Fixed::Fixed() : _fixedPointValue(0)
 
 Fixed::Fixed(const int int_number) : _fixedPointValue(int_number << _fractionalBits)
 {
+	std::cout << "Int value is " << int_number << " and fixed-point value is " << _fixedPointValue << std::endl;
 	std::cout << "Int constructor called" << std::endl;
 };
 
 Fixed::Fixed(const float float_number) : _fixedPointValue(roundf(float_number * (1 << _fractionalBits)))
 {
+	std::cout << "Float value is " << float_number << " and fixed-point value is " << _fixedPointValue << std::endl;
 	std::cout << "Float constructor called" << std::endl;
 };
 
