@@ -1,6 +1,7 @@
 #include "Fixed.hpp"
 
 const int Fixed::_fractionalBits = 8;
+const int Fixed::_powerValue = std::pow(2, _fractionalBits); //256
 
 // CONSTRUCTORS
 Fixed::Fixed() : _fixedPointValue(0)
@@ -8,13 +9,13 @@ Fixed::Fixed() : _fixedPointValue(0)
 	std::cout << "Default constructor called" << std::endl;
 };
 
-Fixed::Fixed(const int int_number) : _fixedPointValue(int_number << _fractionalBits)
+Fixed::Fixed(const int int_number) : _fixedPointValue(int_number * _powerValue)
 {
 	std::cout << "Int value is " << int_number << " and fixed-point value is " << _fixedPointValue << std::endl;
 	std::cout << "Int constructor called" << std::endl;
 };
 
-Fixed::Fixed(const float float_number) : _fixedPointValue(roundf(float_number * (1 << _fractionalBits)))
+Fixed::Fixed(const float float_number) : _fixedPointValue(roundf(float_number * _powerValue))
 {
 	std::cout << "Float value is " << float_number << " and fixed-point value is " << _fixedPointValue << std::endl;
 	std::cout << "Float constructor called" << std::endl;
@@ -51,12 +52,12 @@ std::ostream& operator<<(std::ostream& output, const Fixed& number)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->_fixedPointValue  / (1 << _fractionalBits));
+	return ((float)this->_fixedPointValue  / _powerValue);
 };
 
 int		Fixed::toInt(void) const
 {
-	return((int)this->_fixedPointValue >> _fractionalBits);
+	return((int)this->_fixedPointValue / _powerValue);
 };
 
 // GET AND SET BITS

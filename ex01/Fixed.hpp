@@ -7,6 +7,7 @@ class Fixed
 	private:
 		int					_fixedPointValue;
 		static const int	_fractionalBits;
+		static const int	_powerValue;
 
 	public:
 		Fixed(); //default constructor
